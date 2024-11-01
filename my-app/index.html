@@ -6,26 +6,23 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" sizes="180x180" />
     <link rel="mask-icon" href="/mask-icon.svg" color="#FFFFFF">
     <meta name="theme-color" content="#ffffff">
-    <title>Vite + React + TS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>또띠</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      if ("serviceWorker" in navigator) {
-        // Register a service worker hosted at the root of the
-        // site using the default scope.
-        navigator.serviceWorker
-          .register("/sw.js")
-          .then((registration) => {
-            console.log("Service worker registration succeeded:", registration);
-          })
-          .catch((err) => {
-            console.log("Service worker registration failed:", error);
-          });
-      } else {
-        console.log("Service workers are not supported.");
-      }
+      window.addEventListener('resize', function() {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+  
+        // 최소 크기 360px x 800px 이하로 줄어들지 않도록 고정
+        if (viewportWidth < 360 || viewportHeight < 800) {
+          window.resizeTo(Math.max(360, viewportWidth), Math.max(800, viewportHeight));
+        }
+      });
     </script>
+
   </body>
 </html>

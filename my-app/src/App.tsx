@@ -1,18 +1,16 @@
-// src/App.tsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import MainPage from './pages/MainPage';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '@styles/theme';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from '@routes/AppRouter';
 
-const App: React.FC = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/main" element={<MainPage />} />
-      </Routes>
-    </Router>
-  );
+const App = () => {
+	return (
+		<ThemeProvider theme={theme}>
+			<BrowserRouter>
+				<AppRouter />
+			</BrowserRouter>
+		</ThemeProvider>
+	);
 };
 
 export default App;
