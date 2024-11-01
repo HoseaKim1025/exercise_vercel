@@ -30,7 +30,7 @@ const Background = styled.div`
 	background-position: center;
 
 	width: 360px;
-	height: 800px;
+	height: 768px;
 	z-index: -1;
 `;
 
